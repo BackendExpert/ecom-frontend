@@ -6,8 +6,8 @@ import API from '../../services/api';
 import DefaultInput from '../../component/Form/DefaultInput';
 import DefaultButton from '../../component/Buttons/DefaultButton';
 
-const Login = () => {
-    const { values, handleChange } = useForm({ email: '', password: '' });
+const Register = () => {
+    const { values, handleChange } = useForm({ username: '', email: '', password: '' });
     const { login } = useAuth();
     const navigate = useNavigate();
 
@@ -36,6 +36,15 @@ const Login = () => {
 
                 <form className="mt-8 space-y-5">
                     <DefaultInput
+                        label={'Username'}
+                        type="text"
+                        name="username"
+                        value={values.username}
+                        onChange={handleChange}
+                        required
+                        placeholder={"Username"}
+                    />
+                    <DefaultInput
                         label={'Email Address'}
                         type="email"
                         name="email"
@@ -56,7 +65,7 @@ const Login = () => {
 
                     <DefaultButton
                         type='submit'
-                        label='Login'
+                        label='Register'
                     />
                 </form>
 
@@ -68,4 +77,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
