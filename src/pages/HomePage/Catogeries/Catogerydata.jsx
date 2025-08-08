@@ -1,0 +1,151 @@
+import {
+    MdLocalGroceryStore,
+    MdLocalDrink,
+    MdFastfood,
+    MdRestaurant,
+    MdSetMeal,
+    MdLocalPizza,
+    MdAcUnit,
+    MdLocalCafe,
+    MdFreeBreakfast,
+    MdSoupKitchen,
+    MdInventory,
+    MdDinnerDining,
+    MdGrain,
+    MdLocalDining,   // used instead of MdSpices (no MdSpices in react-icons)
+    MdCake,
+    MdSpa,
+    MdEco,
+    MdLocalBar
+} from "react-icons/md";
+
+const Catogeriesdata = [
+    {
+        id: 1,
+        name: "Fruits & Veges",
+        icon: MdLocalGroceryStore,
+        link: "",
+        dataValue: "Fruits_Veges",
+    },
+    {
+        id: 2,
+        name: "Dairy Products",
+        icon: MdLocalDrink,
+        link: "",
+        dataValue: "Dairy_Products",
+    },
+    {
+        id: 3,
+        name: "Bakery & Bread",
+        icon: MdFastfood,
+        link: "",
+        dataValue: "Bakery_Bread",
+    },
+    {
+        id: 4,
+        name: "Meat & Poultry",
+        icon: MdRestaurant,
+        link: "",
+        dataValue: "Meat_Poultry",
+    },
+    {
+        id: 5,
+        name: "Seafood",
+        icon: MdSetMeal,
+        link: "",
+        dataValue: "Seafood",
+    },
+    {
+        id: 6,
+        name: "Snacks",
+        icon: MdLocalPizza,
+        link: "",
+        dataValue: "Snacks",
+    },
+    {
+        id: 7,
+        name: "Frozen Foods",
+        icon: MdAcUnit,
+        link: "",
+        dataValue: "Frozen_Foods",
+    },
+    {
+        id: 8,
+        name: "Beverages",
+        icon: MdLocalCafe,
+        link: "",
+        dataValue: "Beverages",
+    },
+    {
+        id: 9,
+        name: "Coffee & Tea",
+        icon: MdFreeBreakfast,
+        link: "",
+        dataValue: "Coffee_Tea",
+    },
+    {
+        id: 10,
+        name: "Condiments & Sauces",
+        icon: MdSoupKitchen,
+        link: "",
+        dataValue: "Condiments_Sauces",
+    },
+    {
+        id: 11,
+        name: "Canned & Jarred Foods",
+        icon: MdInventory,
+        link: "",
+        dataValue: "Canned_Jarred_Foods",
+    },
+    {
+        id: 12,
+        name: "Pasta & Rice",
+        icon: MdDinnerDining,
+        link: "",
+        dataValue: "Pasta_Rice",
+    },
+    {
+        id: 13,
+        name: "Breakfast Cereals",
+        icon: MdGrain,
+        link: "",
+        dataValue: "Breakfast_Cereals",
+    },
+    {
+        id: 14,
+        name: "Spices & Seasonings",
+        icon: MdLocalDining, // substitute for spices icon
+        link: "",
+        dataValue: "Spices_Seasonings",
+    },
+    {
+        id: 15,
+        name: "Desserts & Sweets",
+        icon: MdCake,
+        link: "",
+        dataValue: "Desserts_Sweets",
+    },
+    {
+        id: 16,
+        name: "Nuts & Seeds",
+        icon: MdSpa,
+        link: "",
+        dataValue: "Nuts_Seeds",
+    },
+    {
+        id: 17,
+        name: "Organic & Health Foods",
+        icon: MdEco,
+        link: "",
+        dataValue: "Organic_Health_Foods",
+    },
+    {
+        id: 18,
+        name: "Beer & Alcohol",
+        icon: MdLocalBar,
+        link: "",
+        dataValue: "Beer_Alcohol",
+    }
+];
+
+export { Catogeriesdata };

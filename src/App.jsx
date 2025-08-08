@@ -3,30 +3,47 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/HomePage/Home'
 import MainNav from './component/Navs/MainNav'
 import MenuNav from './component/Navs/MenuNav'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import MobileTabNav from './component/Navs/MobileTabNav'
 
 function App() {
     const [showMainNav, setShowMainNav] = useState(true)
+    const sentinelRef = useRef(null)
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY === 0) {
-                setShowMainNav(true) // Show only at top
-            } else {
-                setShowMainNav(false) // Hide when scrolling down
-            }
-        }
+        const sentinel = sentinelRef.current
+        if (!sentinel) return
 
-        window.addEventListener('scroll', handleScroll)
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(
+                ([entry]) => {
+                    // entry.isIntersecting === true while the sentinel is visible in viewport
+                    setShowMainNav(entry.isIntersecting)
+                },
+                { root: null, threshold: 0 }
+            )
+            io.observe(sentinel)
+            return () => io.disconnect()
+        } else {
+            // fallback for very old browsers
+            const getY = () => window.pageYOffset || document.documentElement.scrollTop || 0
+            const onScroll = () => setShowMainNav(getY() <= 200)
+            window.addEventListener('scroll', onScroll, { passive: true })
+            onScroll()
+            return () => window.removeEventListener('scroll', onScroll)
         }
     }, [])
 
     return (
         <BrowserRouter>
             <div className="relative">
+                {/* Sentinel placed 200px from top of this container */}
+                <div
+                    ref={sentinelRef}
+                    style={{ position: 'absolute', top: 110, left: 0, width: 1, height: 1, pointerEvents: 'none' }}
+                    aria-hidden="true"
+                />
+
                 {/* Main Nav (only at top) */}
                 <div className="xl:block hidden">
                     {showMainNav && (
@@ -35,19 +52,15 @@ function App() {
                         </div>
                     )}
 
-                    {/* Menu Nav (always visible on top, below MainNav if shown) */}
                     <div
-                        className={`w-full fixed z-40 transition-all duration-300 ${showMainNav ? 'top-[180px]' : 'top-0'
-                            }`}
+                        className={`w-full fixed z-40 transition-all duration-300 ${showMainNav ? 'top-[180px]' : 'top-0'}`}
                     >
                         <MenuNav />
                     </div>
                 </div>
 
                 <div className="xl:hidden block">
-                    <div
-                        className={`w-full fixed z-40 transition-all duration-300 `}
-                    >
+                    <div className={`w-full fixed z-40 transition-all duration-300`}>
                         <MobileTabNav />
                     </div>
                 </div>
