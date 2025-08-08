@@ -5,6 +5,7 @@ import Login from '../pages/Auth/Login'
 import DefultError from '../component/Errors/DefultError'
 import TestForm from '../pages/HomePage/TestForm'
 import Register from '../pages/Auth/Register'
+import EmailVerify from '../pages/Auth/EmailVerify'
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
                 <Route path='/' element={<WebSite />} >
                     <Route path='*' element={<DefultError /> } />
                     <Route index element={<Home />} />
-                    <Route path='/login' element={<Login /> } />
                     <Route path='/register' element={<Register /> } />
+                    <Route path='/email-verify' element={<EmailVerify /> } />
+                    <Route path='/login' element={<Login /> } />
                     <Route path='/TestForm' element={<TestForm /> } />
                 </Route>
             </Routes>

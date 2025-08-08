@@ -8,15 +8,15 @@ import DefaultButton from '../../component/Buttons/DefaultButton';
 
 const Register = () => {
     const { values, handleChange } = useForm({ username: '', email: '', password: '' });
-    const { login } = useAuth();
+    const { handleEmailVerificationToken } = useAuth();
     const navigate = useNavigate();
 
     const headlesubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await API.post('/auth/login', values)
+            const res = await API.post('/auth/register', values)
             if (res.data.success === true) {
-                login(res.data.token)
+                handleEmailVerificationToken(res.data.token)
                 alert(res.data.message)
                 navigate('/dashboard/home')
             }
@@ -34,7 +34,7 @@ const Register = () => {
                 <h2 className="text-3xl font-bold text-lime-600 text-center">Login</h2>
                 <p className="text-gray-500 text-center mt-2">Welcome back! Please log in to your account.</p>
 
-                <form className="mt-8 space-y-5">
+                <form onSubmit={headlesubmit} className="mt-8 space-y-5">
                     <DefaultInput
                         label={'Username'}
                         type="text"
@@ -70,7 +70,7 @@ const Register = () => {
                 </form>
 
                 <p className="mt-6 text-center text-gray-500 text-sm">
-                    Don’t have an account? <a href="/register" className="text-lime-600 hover:underline">Sign up</a>
+                    Already have an account? <a href="/login" className="text-lime-600 hover:underline">Signin</a>
                 </p>
             </div>
         </div>
