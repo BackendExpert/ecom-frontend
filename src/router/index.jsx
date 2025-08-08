@@ -4,6 +4,7 @@ import Home from '../pages/HomePage/Home'
 import WebSite from '../layouts/WebSite'
 import Login from '../pages/Auth/Login'
 import DefultError from '../component/Errors/DefultError'
+import TestForm from '../pages/HomePage/TestForm'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
                     <Route path='*' element={<DefultError /> } />
                     <Route index element={<Home />} />
                     <Route path='/login' element={<Login /> } />
+                    <Route path='/TestForm' element={<TestForm /> } />
                 </Route>
             </Routes>
         </BrowserRouter>
