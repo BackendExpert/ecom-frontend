@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import MainNav from '../component/Navs/MainNav'
 import MenuNav from '../component/Navs/MenuNav'
 import MobileTabNav from '../component/Navs/MobileTabNav'
+import Footer from '../component/Footers/Footer'
 
 const WebSite = () => {
     const [showMainNav, setShowMainNav] = useState(true)
@@ -65,6 +66,10 @@ const WebSite = () => {
             {/* Main Content */}
             <div className="xl:pt-[210px] pt-10">
                 <Outlet />
+            </div>
+            
+            <div className="">
+                <Footer />
             </div>
         </div>
     )
