@@ -1,6 +1,8 @@
 import React from 'react'
+import { useAuth } from '../../context/AuthContext'
 
 const SecNav = () => {
+    const { user, logout } = useAuth()
     return (
         <div className='bg-gray-50  px-4 border-b border-gray-300'>
             <div className="flex justify-between">
@@ -9,9 +11,15 @@ const SecNav = () => {
                         <a href="" className='mx-2'>
                             <p className="hover:text-lime-600">About Us</p>
                         </a>
-                        <a href="" className='mx-2'>
-                            <p className="hover:text-lime-600">My Account</p>
-                        </a>
+                        {!user ? (
+                            <a href="/login" className='mx-2'>
+                                <p className="hover:text-lime-600">My Account</p>
+                            </a>
+                        ) : (
+                            <a href="" className='mx-2'>
+                                <p className="hover:text-lime-600">My Account</p>
+                            </a>
+                        )}
                         <a href="" className='mx-2'>
                             <p className="hover:text-lime-600">Need Help</p>
                         </a>

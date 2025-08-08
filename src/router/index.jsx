@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from '../pages/HomePage/Home'
 
 import WebSite from '../layouts/WebSite'
+import Login from '../pages/Auth/Login'
+import DefultError from '../component/Errors/DefultError'
 
 function App() {
 
@@ -9,7 +11,9 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<WebSite />} >
+                    <Route path='*' element={<DefultError /> } />
                     <Route index element={<Home />} />
+                    <Route path='/login' element={<Login /> } />
                 </Route>
             </Routes>
         </BrowserRouter>
