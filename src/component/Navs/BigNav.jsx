@@ -3,6 +3,7 @@ import { FaSearch, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { RiMenu2Line } from "react-icons/ri";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import { FaCartShopping } from 'react-icons/fa6';
+import { useAuth } from '../../context/AuthContext';
 
 const BigNav = () => {
     const [showCategories, setShowCategories] = useState(false);
@@ -30,10 +31,12 @@ const BigNav = () => {
         };
     }, []);
 
+    const { user, logout } = useAuth()
+
     return (
         <div className="bg-white">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                
+
                 {/* Left - Logo */}
                 <a href="/" className="flex items-center group">
                     <FaShoppingBasket className="h-12 w-auto fill-lime-600 transition-transform duration-300 group-hover:scale-110" />
@@ -42,7 +45,7 @@ const BigNav = () => {
 
                 {/* Middle - Categories & Search */}
                 <div className="flex items-center space-x-6 relative" ref={dropdownRef}>
-                    
+
                     {/* Categories */}
                     <div
                         onClick={() => setShowCategories(!showCategories)}
@@ -85,12 +88,22 @@ const BigNav = () => {
 
                 {/* Right Side */}
                 <div className="flex items-center space-x-3">
-                    
+
                     {/* Account */}
-                    <a href="" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
-                        <FaUser className="h-5 w-auto fill-gray-500" />
-                        <span className="ml-2 font-medium">My Account</span>
-                    </a>
+                    <div className="">
+                        {!user ? (
+                            <a href="/login" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                <FaUser className="h-5 w-auto fill-gray-500" />
+                                <span className="ml-2 font-medium">My Account</span>
+                            </a>
+                        ) : (
+                            <a href="/dashboard" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                <FaUser className="h-5 w-auto fill-gray-500" />
+                                <span className="ml-2 font-medium">My Account</span>
+                            </a>
+                        )}
+                    </div>
+
 
                     {/* Compare */}
                     <a href="" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
