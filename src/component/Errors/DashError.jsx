@@ -20,7 +20,7 @@ const DashError = () => {
             </p>
 
             {/* Action Button */}
-            <a href="/" className="mt-8">
+            <a href="/Dashboard/Home" className="mt-8">
                 <button className="py-3 px-10 bg-lime-600 text-white font-medium rounded-full shadow-lg hover:bg-lime-700 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
                     Go Back Home
                 </button>

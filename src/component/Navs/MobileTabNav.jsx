@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { FaSearch, FaShoppingBasket, FaUser } from "react-icons/fa";
 import { RiMenu3Fill, RiCloseLine } from "react-icons/ri";
 import { MdOutlineCompareArrows } from "react-icons/md"
+import { useAuth } from "../../context/AuthContext";
 
 const MobileTabNav = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeTab, setActiveTab] = useState("menu");
 
+    const { auth, logout } = useAuth()
     return (
         <>
             {/* Top Navigation */}
@@ -56,10 +58,20 @@ const MobileTabNav = () => {
 
                 <div className="">
                     <div className="flex justify-around px-2 mt-4">
-                        <a href="" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
-                            <FaUser className="h-5 w-auto fill-gray-500" />
-                            <span className="ml-2 font-medium">Account</span>
-                        </a>
+                        {
+                            !auth.token ? (
+                                <a href="/login" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                    <FaUser className="h-5 w-auto fill-gray-500" />
+                                    <span className="ml-2 font-medium">Account</span>
+                                </a>
+                            ) : (
+                                <a href="/Dashboard/Home" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                    <FaUser className="h-5 w-auto fill-gray-500" />
+                                    <span className="ml-2 font-medium">Account</span>
+                                </a>
+                            )
+                        }
+
 
                         {/* Compare */}
                         <a href="" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
