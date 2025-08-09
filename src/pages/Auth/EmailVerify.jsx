@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useForm from '../../hooks/useForm';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import API from '../../services/api';
 import DefaultInput from '../../component/Form/DefaultInput';
 import DefaultButton from '../../component/Buttons/DefaultButton';
+
 
 const EmailVerify = () => {
     const token = localStorage.getItem('emailverify')
@@ -55,8 +56,8 @@ const EmailVerify = () => {
     return (
         <div className="flex items-center justify-center py-16 px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-lime-600 text-center">Login</h2>
-                <p className="text-gray-500 text-center mt-2">Welcome back! Please log in to your account.</p>
+                <h2 className="text-3xl font-bold text-lime-600 text-center">Email Verify</h2>
+                <p className="text-gray-500 text-center mt-2">This is for Email Verification</p>
 
                 <form onSubmit={headlesubmit} className="mt-8 space-y-5">
                     <DefaultInput

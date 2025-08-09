@@ -16,8 +16,8 @@ const Login = () => {
         try {
             const res = await API.post('/auth/login', values)
             if (res.data.success === true) {
-                login(res.data.token)
                 alert(res.data.message)
+                login(res.data.token)
                 navigate('/dashboard/home')
             }
             else if (res.data.success === false) {
@@ -34,7 +34,7 @@ const Login = () => {
                 <h2 className="text-3xl font-bold text-lime-600 text-center">Login</h2>
                 <p className="text-gray-500 text-center mt-2">Welcome back! Please log in to your account.</p>
 
-                <form className="mt-8 space-y-5">
+                <form onSubmit={headlesubmit} className="mt-8 space-y-5">
                     <DefaultInput
                         label={'Email Address'}
                         type="email"

@@ -16,9 +16,9 @@ const Register = () => {
         try {
             const res = await API.post('/auth/register', values)
             if (res.data.success === true) {
-                handleEmailVerificationToken(res.data.token)
                 alert(res.data.message)
-                navigate('/dashboard/home')
+                handleEmailVerificationToken(res.data.token)
+                navigate('/email-verify')
             }
             else if (res.data.success === false) {
                 alert(res.data.message)
@@ -31,8 +31,8 @@ const Register = () => {
     return (
         <div className="flex items-center justify-center py-16 px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-lime-600 text-center">Login</h2>
-                <p className="text-gray-500 text-center mt-2">Welcome back! Please log in to your account.</p>
+                <h2 className="text-3xl font-bold text-lime-600 text-center">SignUp</h2>
+                <p className="text-gray-500 text-center mt-2">Welcome, New to here ? Create Account Now.</p>
 
                 <form onSubmit={headlesubmit} className="mt-8 space-y-5">
                     <DefaultInput
