@@ -3,12 +3,14 @@ import { FaBell } from 'react-icons/fa6'
 import { MdMessage, MdSearch } from 'react-icons/md'
 import { FaUserCog, FaPowerOff, FaCog } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+
 
 const DashNav = ({ handleLogout, username = 'David Gray, H', role = 'Project Manager' }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const menuRef = useRef(null)
     const profileRef = useRef(null)
-
+    const { auth, logout } = useAuth()
     // Close dropdown on outside click
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -115,7 +117,7 @@ const DashNav = ({ handleLogout, username = 'David Gray, H', role = 'Project Man
                         Settings
                     </Link>
                     <button
-                        onClick={handleLogout}
+                        onClick={logout}
                         className="w-full text-left flex items-center gap-3 px-4 py-2 rounded-lg text-red-600 hover:bg-red-50 transition font-medium"
                         role="menuitem"
                     >
