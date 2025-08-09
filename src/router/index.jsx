@@ -6,6 +6,9 @@ import DefultError from '../component/Errors/DefultError'
 import TestForm from '../pages/HomePage/TestForm'
 import Register from '../pages/Auth/Register'
 import EmailVerify from '../pages/Auth/EmailVerify'
+import PrivateRoute from './PrivateRoute'
+import Dashboard from '../layouts/Dashboard'
+import DashHome from '../pages/Dashboard/DashHome'
 
 function App() {
 
@@ -19,6 +22,10 @@ function App() {
                     <Route path='/email-verify' element={<EmailVerify /> } />
                     <Route path='/login' element={<Login /> } />
                     <Route path='/TestForm' element={<TestForm /> } />
+                </Route>
+
+                <Route path='/Dashboard/' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Dashboard /></PrivateRoute>}>
+                    <Route path='Home' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashHome /></PrivateRoute>} />
                 </Route>
             </Routes>
         </BrowserRouter>

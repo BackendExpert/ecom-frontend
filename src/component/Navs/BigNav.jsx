@@ -97,7 +97,7 @@ const BigNav = () => {
                                 <span className="ml-2 font-medium">My Account</span>
                             </a>
                         ) : (
-                            <a href="/dashboard" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                            <a href="/Dashboard/Home" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
                                 <FaUser className="h-5 w-auto fill-gray-500" />
                                 <span className="ml-2 font-medium">My Account</span>
                             </a>

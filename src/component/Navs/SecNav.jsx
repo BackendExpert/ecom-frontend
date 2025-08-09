@@ -16,7 +16,7 @@ const SecNav = () => {
                                 <p className="hover:text-lime-600">My Account</p>
                             </a>
                         ) : (
-                            <a href="" className='mx-2'>
+                            <a href="/Dashboard/Home" className='mx-2'>
                                 <p className="hover:text-lime-600">My Account</p>
                             </a>
                         )}
