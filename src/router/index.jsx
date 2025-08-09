@@ -9,6 +9,9 @@ import EmailVerify from '../pages/Auth/EmailVerify'
 import PrivateRoute from './PrivateRoute'
 import Dashboard from '../layouts/Dashboard'
 import DashHome from '../pages/Dashboard/DashHome'
+import Chats from '../pages/Dashboard/Chats'
+import Notifications from '../pages/Dashboard/Notifications'
+import DashError from '../component/Errors/DashError'
 
 function App() {
 
@@ -16,16 +19,19 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<WebSite />} >
-                    <Route path='*' element={<DefultError /> } />
+                    <Route path='*' element={<DefultError />} />
                     <Route index element={<Home />} />
-                    <Route path='/register' element={<Register /> } />
-                    <Route path='/email-verify' element={<EmailVerify /> } />
-                    <Route path='/login' element={<Login /> } />
-                    <Route path='/TestForm' element={<TestForm /> } />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/email-verify' element={<EmailVerify />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/TestForm' element={<TestForm />} />
                 </Route>
 
                 <Route path='/Dashboard/' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Dashboard /></PrivateRoute>}>
+                    <Route path='*' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashError /></PrivateRoute>} />
                     <Route path='Home' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashHome /></PrivateRoute>} />
+                    <Route path='Chats' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Chats /></PrivateRoute>} />
+                    <Route path='Notifications' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Notifications /></PrivateRoute>} />
                 </Route>
             </Routes>
         </BrowserRouter>

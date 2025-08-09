@@ -39,9 +39,9 @@ const Dashboard = () => {
                 aria-label="Toggle sidebar"
             >
                 {openside ? (
-                    <MdOutlineClose className="fill-[#7829e1] h-8 w-auto" />
+                    <MdOutlineClose className="fill-lime-600 h-8 w-auto" />
                 ) : (
-                    <TiThMenu className="fill-[#7829e1] h-8 w-auto" />
+                    <TiThMenu className="fill-lime-600 h-8 w-auto" />
                 )}
             </button>
 

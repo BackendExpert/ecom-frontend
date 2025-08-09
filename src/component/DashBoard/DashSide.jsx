@@ -7,6 +7,7 @@ import {
     MdEmail,
     MdLogout
 } from 'react-icons/md'
+import { useAuth } from '../../context/AuthContext'
 
 const DashSide = () => {
     const menuItems = [
@@ -17,29 +18,29 @@ const DashSide = () => {
         { name: 'Settings', icon: <MdSettings /> },
         { name: 'Logout', icon: <MdLogout /> },
     ]
-
+    const { auth, logout } = useAuth()
     return (
-        <aside className="h-screen w-64 bg-gradient-to-b from-white via-violet-50 to-violet-100 border-r border-violet-200 shadow-lg flex flex-col overflow-y-auto">
+        <aside className="h-screen w-64 border-r border-lime-200 shadow-lg flex flex-col overflow-y-auto">
             {/* Header */}
-            <div className="flex items-center gap-3 px-6 py-5 border-b border-violet-200 shrink-0">
-                <MdDashboard className="h-7 w-7 text-violet-600" />
-                <h1 className="text-2xl font-bold text-violet-700 tracking-tight">
+            <div className="flex items-center gap-3 px-6 py-5 border-b border-lime-200 shrink-0">
+                <MdDashboard className="h-7 w-7 text-lime-600" />
+                <h1 className="text-2xl font-bold text-lime-700 tracking-tight">
                     Dashboard
                 </h1>
             </div>
 
             {/* Profile Section */}
-            <div className="flex items-center gap-4 px-6 py-6 border-b border-violet-100 shrink-0">
+            <div className="flex items-center gap-4 px-6 py-6 border-b border-lime-100 shrink-0">
                 <img
                     src="https://demo.bootstrapdash.com/purple-admin-free/dist/themes/assets/images/faces/face1.jpg"
                     alt="Profile"
-                    className="w-14 h-14 rounded-full border-2 border-violet-400 shadow-md"
+                    className="w-14 h-14 rounded-full border-2 border-lime-400 shadow-md"
                 />
                 <div>
                     <h2 className="text-md font-semibold text-gray-800">
-                        David Gray, H
+                        {auth.user?.username}
                     </h2>
-                    <p className="text-sm text-gray-500">Project Manager</p>
+                    <p className="text-sm text-gray-500">{auth.role}</p>
                 </div>
             </div>
 
@@ -50,11 +51,11 @@ const DashSide = () => {
                         key={index}
                         className={`group flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-all
                             ${item.active
-                                ? 'bg-violet-600 text-white shadow-md'
-                                : 'text-gray-600 hover:bg-violet-100 hover:text-violet-700'}
+                                ? 'bg-lime-600 text-white shadow-md'
+                                : 'text-gray-600 hover:bg-lime-100 hover:text-lime-700'}
                         `}
                     >
-                        <span className={`text-xl transition-all ${item.active ? 'text-white' : 'group-hover:text-violet-700 text-violet-500'}`}>
+                        <span className={`text-xl transition-all ${item.active ? 'text-white' : 'group-hover:text-lime-700 text-lime-500'}`}>
                             {item.icon}
                         </span>
                         <span className="text-sm font-medium tracking-wide">
