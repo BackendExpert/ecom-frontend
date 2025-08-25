@@ -65,7 +65,7 @@ const Profile = () => {
         <div className="max-w-8xl mx-auto p-6">
             {/* Header */}
             <div className="flex items-center space-x-3 mb-8">
-                <div className="p-3 rounded-full bg-violet-500 shadow-md">
+                <div className="p-3 rounded-full bg-lime-500 shadow-md">
                     <FaUserEdit className="text-white text-lg" />
                 </div>
                 <h1 className="text-2xl font-bold text-gray-800">My Profile</h1>
@@ -78,9 +78,9 @@ const Profile = () => {
                     <img
                         src={imgSrc}
                         alt="profile"
-                        className="w-40 h-40 rounded-full border-4 border-violet-600 object-cover shadow-md"
+                        className="w-40 h-40 rounded-full border-4 border-lime-600 object-cover shadow-md"
                     />
-                    <span className="absolute bottom-2 right-2 bg-violet-600 text-white text-xs px-3 py-1 rounded-full shadow">
+                    <span className="absolute bottom-2 right-2 bg-lime-600 text-white text-xs px-3 py-1 rounded-full shadow">
                         {auth?.role || "User"}
                     </span>
                 </div>
@@ -99,7 +99,7 @@ const Profile = () => {
                             type="button"
                             label="Update Profile"
                             className={`px-6 py-2 rounded-xl shadow transition-all duration-200 ${activeTab === "profile"
-                                ? "bg-violet-600 text-white"
+                                ? "bg-lime-600 text-white"
                                 : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                                 }`}
                         />
@@ -108,7 +108,7 @@ const Profile = () => {
                             type="button"
                             label="Update Password"
                             className={`px-6 py-2 rounded-xl shadow transition-all duration-200 ${activeTab === "password"
-                                ? "bg-violet-600 text-white"
+                                ? "bg-lime-600 text-white"
                                 : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                                 }`}
                         />

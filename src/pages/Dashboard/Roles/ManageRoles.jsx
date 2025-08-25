@@ -68,7 +68,7 @@ const ManageRoles = () => {
     return (
         <div>
             <div className="flex">
-                <div className="p-2 rounded bg-violet-400">
+                <div className="p-2 rounded bg-lime-400">
                     <FaUserShield className="fill-white" />
                 </div>
                 <div>
@@ -78,12 +78,12 @@ const ManageRoles = () => {
 
             <div className="my-8">
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
-                    <div className="relative overflow-hidden rounded-2xl shadow-lg bg-gradient-to-br from-violet-500 via-violet-600 to-purple-700 p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-violet-400 opacity-20 rounded-full blur-2xl"></div>
+                    <div className="relative overflow-hidden rounded-2xl shadow-lg bg-gradient-to-br from-lime-500 via-lime-600 to-purple-700 p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-lime-400 opacity-20 rounded-full blur-2xl"></div>
 
                         <div className="flex items-center justify-between relative z-10">
                             <div>
-                                <h1 className="text-sm uppercase tracking-wide text-violet-200 font-medium">
+                                <h1 className="text-sm uppercase tracking-wide text-lime-200 font-medium">
                                     Total Roles
                                 </h1>
                                 <p className="mt-2 text-3xl font-bold text-white">
@@ -91,7 +91,7 @@ const ManageRoles = () => {
                                 </p>
                             </div>
 
-                            <div className="p-4 bg-violet-400/30 rounded-full backdrop-blur-sm">
+                            <div className="p-4 bg-lime-400/30 rounded-full backdrop-blur-sm">
                                 <FaUserShield className="text-white text-3xl" />
                             </div>
                         </div>
@@ -109,7 +109,7 @@ const ManageRoles = () => {
 
             <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
                 <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gradient-to-r from-violet-500 via-violet-600 to-purple-700 text-white">
+                    <thead className="bg-gradient-to-r from-lime-500 via-lime-600 to-purple-700 text-white">
                         <tr>
                             <th className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">
                                 #
@@ -137,7 +137,7 @@ const ManageRoles = () => {
                             </tr>
                         ) : (
                             roles.map((role, index) => (
-                                <tr key={role._id || index} className="hover:bg-violet-50 transition-colors duration-200">
+                                <tr key={role._id || index} className="hover:bg-lime-50 transition-colors duration-200">
                                     <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-700 font-medium">
                                         {index + 1}
                                     </td>

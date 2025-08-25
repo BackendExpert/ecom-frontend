@@ -31,7 +31,7 @@ const Unauthorized = () => {
                 </p>
                 <button
                     onClick={healdeUnauthorized}
-                    className="px-5 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-lg font-medium transition"
+                    className="px-5 py-3 bg-lime-600 hover:bg-lime-700 text-white rounded-lg font-medium transition"
                 >
                     Logout & Go Back
                 </button>

@@ -67,7 +67,7 @@ const DashSide = () => {
 
     // Menu items configuration
     const menuItems = [
-        { link: '/Dashboard', name: 'Overview', icon: <MdDashboard /> },
+        { link: '/Dashboard', name: 'Dashboard', icon: <MdDashboard /> },
         auth.role === 'admin' && {
             link: '/Dashboard/manage-roles',
             name: 'System Roles',
@@ -168,7 +168,7 @@ const DashSide = () => {
 
             {/* Footer Spacer */}
             <div className="mt-auto p-4 text-center text-xs text-gray-400 shrink-0">
-                © {new Date().getFullYear()} LCM
+                © {new Date().getFullYear()} MyCart
             </div>
         </aside>
     );

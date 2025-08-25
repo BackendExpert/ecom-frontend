@@ -41,7 +41,7 @@ const Permissions = () => {
     return (
         <div>
             <div className="flex">
-                <div className="p-2 rounded bg-violet-400">
+                <div className="p-2 rounded bg-lime-400">
                     <FaUserShield className='fill-white' />
                 </div>
                 <div className="">
@@ -63,7 +63,7 @@ const Permissions = () => {
 
                 <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200 mt-8">
                     <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gradient-to-r from-violet-500 via-violet-600 to-purple-700 text-white">
+                        <thead className="bg-gradient-to-r from-lime-500 via-lime-600 to-purple-700 text-white">
                             <tr>
                                 <th className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">
                                     #
@@ -94,7 +94,7 @@ const Permissions = () => {
                                 </tr>
                             ) : (
                                 roles.map((role, index) => (
-                                    <tr key={role._id || index} className="hover:bg-violet-50 transition-colors duration-200">
+                                    <tr key={role._id || index} className="hover:bg-lime-50 transition-colors duration-200">
                                         <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-700 font-medium">
                                             {index + 1}
                                         </td>
@@ -106,7 +106,7 @@ const Permissions = () => {
                                                 role.permissions.map((perm, i) => (
                                                     <span
                                                         key={i}
-                                                        className="bg-violet-100 text-violet-800 px-2 py-1 rounded-full text-xs font-semibold"
+                                                        className="bg-lime-100 text-lime-800 px-2 py-1 rounded-full text-xs font-semibold"
                                                     >
                                                         {perm}
                                                     </span>
@@ -117,7 +117,7 @@ const Permissions = () => {
                                         </td>
                                         <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-800">
                                             <Link to={`/Dashboard/view-permissions/${role._id}`}>
-                                                <p className="text-violet-600 hover:underline">
+                                                <p className="text-lime-600 hover:underline">
                                                     View
                                                 </p>
                                             </Link>

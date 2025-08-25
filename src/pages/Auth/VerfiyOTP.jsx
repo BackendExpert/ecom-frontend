@@ -38,7 +38,7 @@ const VerfiyOTP = () => {
 
     return (
         <div className="md:my-[4%] max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8 px-6 py-12 items-start">
-            <div className="bg-white border border-violet-200 rounded-xl shadow-lg p-8 w-full max-w-md mx-auto">
+            <div className="bg-white border border-lime-200 rounded-xl shadow-lg p-8 w-full max-w-md mx-auto">
                 <h2 className="text-2xl font-bold text-center text-lime-700 mb-6">
                     OTP Verification
                 </h2>

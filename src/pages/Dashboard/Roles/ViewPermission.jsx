@@ -84,7 +84,7 @@ const ViewPermission = () => {
     return (
         <div>
             <div className="flex items-center gap-2">
-                <div className="p-2 rounded bg-violet-400">
+                <div className="p-2 rounded bg-lime-400">
                     <FaUserShield className="fill-white" />
                 </div>
                 <h1 className="font-bold text-xl">View Permission {id}</h1>
@@ -100,14 +100,14 @@ const ViewPermission = () => {
 
                 <div className="">
                     <div className="text-gray-500">
-                        <h1 className="text-xl">Role: <span className='text-violet-600 font-bold'>{role?.name}</span></h1>
+                        <h1 className="text-xl">Role: <span className='text-lime-600 font-bold'>{role?.name}</span></h1>
                     </div>
-                    <div className="mt-4 flex flex-wrap gap-2 border-t border-violet-400 py-4">
+                    <div className="mt-4 flex flex-wrap gap-2 border-t border-lime-400 py-4">
                         {role?.permissions?.length > 0 ? (
                             role.permissions.map((perm, i) => (
                                 <span
                                     key={i}
-                                    className="bg-violet-100 text-violet-800 px-2 py-1 rounded-full font-semibold"
+                                    className="bg-lime-100 text-lime-800 px-2 py-1 rounded-full font-semibold"
                                 >
                                     {perm}
                                 </span>

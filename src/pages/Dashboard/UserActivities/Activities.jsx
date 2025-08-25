@@ -78,7 +78,7 @@ const Activities = () => {
         <div className="p-6">
             {/* Header */}
             <div className="flex items-center space-x-3 mb-8">
-                <div className="p-3 rounded-full bg-violet-500 shadow-lg">
+                <div className="p-3 rounded-full bg-lime-500 shadow-lg">
                     <MdHistory className="text-white text-2xl" />
                 </div>
                 <h1 className="text-2xl font-bold text-gray-800">User Activities</h1>
@@ -91,20 +91,20 @@ const Activities = () => {
                     placeholder="Filter by username"
                     value={usernameFilter}
                     onChange={(e) => setUsernameFilter(e.target.value)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500"
                 />
                 <input
                     type="date"
                     value={dateFilter}
                     onChange={(e) => setDateFilter(e.target.value)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500"
                 />
             </div>
 
             {/* Loading */}
             {loading && (
                 <div className="flex justify-center items-center py-10">
-                    <div className="w-10 h-10 border-4 border-violet-500 border-dashed rounded-full animate-spin"></div>
+                    <div className="w-10 h-10 border-4 border-lime-500 border-dashed rounded-full animate-spin"></div>
                 </div>
             )}
 
@@ -126,7 +126,7 @@ const Activities = () => {
                         <>
                             <div className="overflow-hidden rounded-2xl shadow-lg border border-gray-200">
                                 <table className="min-w-full divide-y divide-gray-200">
-                                    <thead className="bg-violet-50">
+                                    <thead className="bg-lime-50">
                                         <tr>
                                             <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">
                                                 User
@@ -149,12 +149,12 @@ const Activities = () => {
                                         {paginatedData.map((act, index) => (
                                             <tr
                                                 key={index}
-                                                className="hover:bg-violet-50 transition-colors duration-200"
+                                                className="hover:bg-lime-50 transition-colors duration-200"
                                             >
                                                 <td className="px-6 py-4 text-sm text-gray-800 font-medium">
                                                     {act.user?.username || "Unknown"}
                                                 </td>
-                                                <td className="px-6 py-4 text-sm text-violet-600 font-semibold">
+                                                <td className="px-6 py-4 text-sm text-lime-600 font-semibold">
                                                     {act.action}
                                                 </td>
                                                 <td className="px-6 py-4 text-sm text-gray-600">
@@ -165,7 +165,7 @@ const Activities = () => {
                                                 </td>
                                                 <td className="px-6 py-4 text-sm text-gray-500">
                                                     <Link to={`/Dashboard/view-activity/${act._id}`}>
-                                                        <span className="text-violet-700 hover:underline">View</span>
+                                                        <span className="text-lime-700 hover:underline">View</span>
                                                     </Link>
                                                 </td>
                                             </tr>
@@ -181,7 +181,7 @@ const Activities = () => {
                                     onClick={() => setCurrentPage((p) => p - 1)}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium ${currentPage === 1
                                         ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                                        : "bg-violet-500 text-white hover:bg-violet-600"
+                                        : "bg-lime-500 text-white hover:bg-lime-600"
                                         }`}
                                 >
                                     Previous
@@ -194,7 +194,7 @@ const Activities = () => {
                                     onClick={() => setCurrentPage((p) => p + 1)}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium ${currentPage === totalPages
                                         ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                                        : "bg-violet-500 text-white hover:bg-violet-600"
+                                        : "bg-lime-500 text-white hover:bg-lime-600"
                                         }`}
                                 >
                                     Next

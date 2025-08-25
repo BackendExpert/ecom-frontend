@@ -40,7 +40,7 @@ const CreateNewRole = () => {
     return (
         <div>
             <div className="flex">
-                <div className="p-2 rounded bg-violet-400">
+                <div className="p-2 rounded bg-lime-400">
                     <FaUserShield className='fill-white' />
                 </div>
                 <div className="">

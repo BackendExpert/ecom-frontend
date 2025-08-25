@@ -43,7 +43,7 @@ const ViewActivity = () => {
         <div className="p-6">
             {/* Header */}
             <div className="flex items-center space-x-3 mb-8">
-                <div className="p-3 rounded-full bg-violet-500 shadow-lg">
+                <div className="p-3 rounded-full bg-lime-500 shadow-lg">
                     <MdHistory className="text-white text-2xl" />
                 </div>
                 <h1 className="text-2xl font-bold text-gray-800">
@@ -63,7 +63,7 @@ const ViewActivity = () => {
             {/* Loading */}
             {loading && (
                 <div className="flex justify-center items-center py-10">
-                    <div className="w-10 h-10 border-4 border-violet-500 border-dashed rounded-full animate-spin"></div>
+                    <div className="w-10 h-10 border-4 border-lime-500 border-dashed rounded-full animate-spin"></div>
                 </div>
             )}
 
@@ -91,7 +91,7 @@ const ViewActivity = () => {
                             <h2 className="text-sm font-semibold text-gray-500 uppercase">
                                 Action
                             </h2>
-                            <p className="text-lg font-medium text-violet-600">
+                            <p className="text-lg font-medium text-lime-600">
                                 {activity.action}
                             </p>
                         </div>

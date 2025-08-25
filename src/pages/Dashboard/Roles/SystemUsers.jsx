@@ -87,7 +87,7 @@ const SystemUsers = () => {
         <div>
             {/* Header */}
             <div className="flex items-center">
-                <div className="p-2 rounded bg-violet-400">
+                <div className="p-2 rounded bg-lime-400">
                     <FaUserShield className='fill-white' />
                 </div>
                 <h1 className="font-bold text-xl ml-2">System Users</h1>
@@ -96,16 +96,16 @@ const SystemUsers = () => {
             {/* Stats */}
             <div className="my-8">
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
-                    <div className="relative overflow-hidden rounded-2xl shadow-lg bg-gradient-to-br from-violet-500 via-violet-600 to-purple-700 p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-violet-400 opacity-20 rounded-full blur-2xl"></div>
+                    <div className="relative overflow-hidden rounded-2xl shadow-lg bg-gradient-to-br from-lime-500 via-lime-600 to-purple-700 p-6 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-lime-400 opacity-20 rounded-full blur-2xl"></div>
                         <div className="flex items-center justify-between relative z-10">
                             <div>
-                                <h1 className="text-sm uppercase tracking-wide text-violet-200 font-medium">Total Roles</h1>
+                                <h1 className="text-sm uppercase tracking-wide text-lime-200 font-medium">Total Roles</h1>
                                 <p className="mt-2 text-3xl font-bold text-white">
                                     {loading ? "..." : filteredUsers.length}
                                 </p>
                             </div>
-                            <div className="p-4 bg-violet-400/30 rounded-full backdrop-blur-sm">
+                            <div className="p-4 bg-lime-400/30 rounded-full backdrop-blur-sm">
                                 <FaUserShield className="text-white text-3xl" />
                             </div>
                         </div>
@@ -125,7 +125,7 @@ const SystemUsers = () => {
                 <input
                     type="text"
                     placeholder="Search by email..."
-                    className="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    className="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500"
                     value={searchTerm}
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
@@ -140,7 +140,7 @@ const SystemUsers = () => {
 
                 <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200 mt-8">
                     <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gradient-to-r from-violet-500 via-violet-600 to-purple-700 text-white">
+                        <thead className="bg-gradient-to-r from-lime-500 via-lime-600 to-purple-700 text-white">
                             <tr>
                                 <th className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">#</th>
                                 <th className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wider">Username</th>
@@ -165,7 +165,7 @@ const SystemUsers = () => {
                                 currentUsers.map((user, index) => (
                                     <tr
                                         key={user._id || index}
-                                        className="hover:bg-violet-50 transition-colors duration-200"
+                                        className="hover:bg-lime-50 transition-colors duration-200"
                                     >
                                         <td className="px-6 py-3">{indexOfFirstItem + index + 1}</td>
                                         <td className="px-6 py-3">{user.username}</td>
@@ -186,15 +186,15 @@ const SystemUsers = () => {
                                             )}
                                         </td>
                                         <td className="px-6 py-3">
-                                            <p>join: <span className="text-violet-800 font-bold">{new Date(user.createdAt).toLocaleDateString()}</span></p>
-                                            <p>last Update: <span className="text-violet-800 font-bold">{new Date(user.updatedAt).toLocaleDateString()}</span></p>
+                                            <p>join: <span className="text-lime-800 font-bold">{new Date(user.createdAt).toLocaleDateString()}</span></p>
+                                            <p>last Update: <span className="text-lime-800 font-bold">{new Date(user.updatedAt).toLocaleDateString()}</span></p>
                                         </td>
                                         <td className="px-6 py-3">
                                             {user?.role?.name === "admin" || user._id === auth.id ? (
                                                 <p>This Account Cannot be Updated or Deleted</p>
                                             ) : (
                                                 <span
-                                                    className="text-violet-600 hover:underline cursor-pointer font-semibold"
+                                                    className="text-lime-600 hover:underline cursor-pointer font-semibold"
                                                     onClick={() => handleUpdateUserStatus(user._id)}
                                                 >
                                                     Click to {user.isActive ? "Deactive" : "Active"}
@@ -214,7 +214,7 @@ const SystemUsers = () => {
                         <button
                             onClick={() => goToPage(currentPage - 1)}
                             disabled={currentPage === 1}
-                            className="px-4 py-2 border rounded-lg hover:bg-violet-100 disabled:opacity-50"
+                            className="px-4 py-2 border rounded-lg hover:bg-lime-100 disabled:opacity-50"
                         >
                             Prev
                         </button>
@@ -224,7 +224,7 @@ const SystemUsers = () => {
                         <button
                             onClick={() => goToPage(currentPage + 1)}
                             disabled={currentPage === totalPages}
-                            className="px-4 py-2 border rounded-lg hover:bg-violet-100 disabled:opacity-50"
+                            className="px-4 py-2 border rounded-lg hover:bg-lime-100 disabled:opacity-50"
                         >
                             Next
                         </button>
