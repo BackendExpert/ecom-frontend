@@ -12,6 +12,20 @@ import DashHome from '../pages/Dashboard/DashHome'
 import Chats from '../pages/Dashboard/Chats'
 import Notifications from '../pages/Dashboard/Notifications'
 import DashError from '../component/Errors/DashError'
+import ForgetPass from '../pages/Auth/ForgetPass'
+import VerfiyOTP from '../pages/Auth/VerfiyOTP'
+import UpdatePassword from '../pages/Auth/UpdatePassword'
+import Unauthorized from './Unauthorized'
+import CreatePermissions from '../pages/Dashboard/Roles/CreatePermissions'
+import ViewPermission from '../pages/Dashboard/Roles/VIewPermission'
+import Profile from '../pages/Dashboard/Profile/Profile'
+import Activities from '../pages/Dashboard/UserActivities/Activities'
+import ViewActivity from '../pages/Dashboard/UserActivities/ViewActivity'
+import CreateNewRole from '../pages/Dashboard/Roles/CreateNewRole'
+import ManageRoles from '../pages/Dashboard/Roles/ManageRoles'
+import Permissions from '../pages/Dashboard/Roles/Permissions'
+import SystemUsers from '../pages/Dashboard/Roles/SystemUsers'
+import CreateUser from '../pages/Dashboard/Roles/CreateUser'
 
 function App() {
 
@@ -25,6 +39,11 @@ function App() {
                     <Route path='/email-verify' element={<EmailVerify />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/TestForm' element={<TestForm />} />
+
+                    <Route path='/forget-password' element={<ForgetPass />} />
+                    <Route path='/verify-otp' element={<VerfiyOTP />} />
+                    <Route path='/update-password' element={<UpdatePassword />} />
+                    <Route path='/unauthorized' element={<Unauthorized />} />
                 </Route>
 
                 <Route path='/Dashboard/' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Dashboard /></PrivateRoute>}>
@@ -32,6 +51,22 @@ function App() {
                     <Route path='Home' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashHome /></PrivateRoute>} />
                     <Route path='Chats' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Chats /></PrivateRoute>} />
                     <Route path='Notifications' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Notifications /></PrivateRoute>} />
+
+                    <Route path='profile' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Profile /> </PrivateRoute>} />
+
+
+                    <Route path='manage-roles' element={<PrivateRoute roles={['admin']}><ManageRoles /></PrivateRoute>} />
+                    <Route path='create-role' element={<PrivateRoute roles={['admin']}><CreateNewRole /></PrivateRoute>} />
+                    <Route path='permissions' element={<PrivateRoute roles={['admin']}><Permissions /></PrivateRoute>} />
+                    <Route path='system-users' element={<PrivateRoute roles={['admin']}><SystemUsers /></PrivateRoute>} />
+                    <Route path='create-system-users' element={<PrivateRoute roles={['admin']}><CreateUser /></PrivateRoute>} />
+                    <Route path='create-permissions' element={<PrivateRoute roles={['admin']}><CreatePermissions /></PrivateRoute>} />
+                    <Route path='view-permissions/:id' element={<PrivateRoute roles={['admin']}><ViewPermission /></PrivateRoute>} />
+                    <Route path='create-newrole' element={<PrivateRoute roles={['admin']}><CreateNewRole /></PrivateRoute>} />
+                    <Route path='activities' element={<PrivateRoute roles={['admin']}><Activities /></PrivateRoute>} />
+                    <Route path='view-activity/:id' element={<PrivateRoute roles={['admin']}><ViewActivity /></PrivateRoute>} />
+
+
                 </Route>
             </Routes>
         </BrowserRouter>

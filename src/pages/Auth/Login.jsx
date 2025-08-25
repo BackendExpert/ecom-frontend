@@ -1,7 +1,7 @@
 import React from 'react'
 import useForm from '../../hooks/useForm';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import API from '../../services/api';
 import DefaultInput from '../../component/Form/DefaultInput';
 import DefaultButton from '../../component/Buttons/DefaultButton';
@@ -59,6 +59,11 @@ const Login = () => {
                         label='Login'
                     />
                 </form>
+                <div className="">
+                    <Link to={'/forget-password'}>
+                        <p className="text-lime-800 hover:underline">Forget Password</p>
+                    </Link>
+                </div>
 
                 <p className="mt-6 text-center text-gray-500 text-sm">
                     Don’t have an account? <a href="/register" className="text-lime-600 hover:underline">Sign up</a>
