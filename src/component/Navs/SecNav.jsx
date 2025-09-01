@@ -22,7 +22,7 @@ const SecNav = () => {
                                 }
                                 else if (auth.role === 'admin' || auth.role === 'staff' || auth.role === 'vendor') {
                                     return (
-                                        <a href="/Dashboard/Home" className='mx-2'>
+                                        <a href="/Dashboard" className='mx-2'>
                                             <p className="hover:text-lime-600">My Account</p>
                                         </a>
                                     )
