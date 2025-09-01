@@ -26,7 +26,7 @@ const Login = () => {
                 const decoded = jwtDecode(res.data.token);
                 const role = decoded?.role;
 
-                if (role === "admin") {
+                if (role === "admin" || role === "staff" || role === "vendor") {
                     navigate('/Dashboard')
                 } else if (role === "buyer") {
                     navigate('/my-dashboard')

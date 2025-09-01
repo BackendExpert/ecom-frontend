@@ -48,7 +48,7 @@ function App() {
                     <Route path='/unauthorized' element={<Unauthorized />} />
                 </Route>
 
-                <Route path='/Dashboard/' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Dashboard /></PrivateRoute>}>
+                <Route path='/Dashboard/' element={<PrivateRoute roles={['admin', 'staff', 'vendor']}><Dashboard /></PrivateRoute>}>
                     <Route path='*' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashError /></PrivateRoute>} />
                     <Route index element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><DashHome /></PrivateRoute>} />
                     <Route path='Chats' element={<PrivateRoute roles={['buyer', 'admin', 'staff', 'vendor']}><Chats /></PrivateRoute>} />
