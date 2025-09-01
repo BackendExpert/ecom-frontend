@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import API from '../../services/api';
 import DefaultInput from '../../component/Form/DefaultInput';
 import DefaultButton from '../../component/Buttons/DefaultButton';
+import { jwtDecode } from "jwt-decode";   // 👈 add this
 
 const Login = () => {
     const { values, handleChange } = useForm({ email: '', password: '' });
@@ -17,10 +18,23 @@ const Login = () => {
             const res = await API.post('/auth/login', values)
             if (res.data.success === true) {
                 alert(res.data.message)
+
+                // save token in context
                 login(res.data.token)
-                navigate('/Dashboard')
+
+                // 👇 decode token to extract role
+                const decoded = jwtDecode(res.data.token);
+                const role = decoded?.role;
+
+                if (role === "admin") {
+                    navigate('/Dashboard')
+                } else if (role === "buyer") {
+                    navigate('/my-dashboard')
+                } else {
+                    navigate('/') // fallback
+                }
             }
-            else if (res.data.success === false) {
+            else {
                 alert(res.data.message)
             }
         }
@@ -28,6 +42,7 @@ const Login = () => {
             console.log(err)
         }
     }
+
     return (
         <div className="flex items-center justify-center py-16 px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
