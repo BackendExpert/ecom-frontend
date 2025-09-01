@@ -26,6 +26,7 @@ import ManageRoles from '../pages/Dashboard/Roles/ManageRoles'
 import Permissions from '../pages/Dashboard/Roles/Permissions'
 import SystemUsers from '../pages/Dashboard/Roles/SystemUsers'
 import CreateUser from '../pages/Dashboard/Roles/CreateUser'
+import BuyerDash from '../layouts/BuyerDash'
 
 function App() {
 
@@ -65,8 +66,11 @@ function App() {
                     <Route path='create-newrole' element={<PrivateRoute roles={['admin']}><CreateNewRole /></PrivateRoute>} />
                     <Route path='activities' element={<PrivateRoute roles={['admin']}><Activities /></PrivateRoute>} />
                     <Route path='view-activity/:id' element={<PrivateRoute roles={['admin']}><ViewActivity /></PrivateRoute>} />
+                </Route>
 
 
+                <Route path='/my-dashboard' element={<PrivateRoute roles={['buyer', 'admin']}><BuyerDash /> </PrivateRoute> } >
+                    
                 </Route>
             </Routes>
         </BrowserRouter>
