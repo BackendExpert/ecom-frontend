@@ -27,6 +27,7 @@ import Permissions from '../pages/Dashboard/Roles/Permissions'
 import SystemUsers from '../pages/Dashboard/Roles/SystemUsers'
 import CreateUser from '../pages/Dashboard/Roles/CreateUser'
 import BuyerDash from '../layouts/BuyerDash'
+import MyDashboard from '../pages/BuyerDash/MyDashboard'
 
 function App() {
 
@@ -70,7 +71,7 @@ function App() {
 
 
                 <Route path='/my-dashboard' element={<PrivateRoute roles={['buyer', 'admin']}><BuyerDash /> </PrivateRoute> } >
-                    
+                    <Route index element={<PrivateRoute roles={['buyer', 'admin']}> <MyDashboard /> </PrivateRoute> } />
                 </Route>
             </Routes>
         </BrowserRouter>

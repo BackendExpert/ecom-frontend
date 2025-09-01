@@ -18,7 +18,7 @@ const Login = () => {
             if (res.data.success === true) {
                 alert(res.data.message)
                 login(res.data.token)
-                navigate('/Dashboard/Home')
+                navigate('/Dashboard')
             }
             else if (res.data.success === false) {
                 alert(res.data.message)
