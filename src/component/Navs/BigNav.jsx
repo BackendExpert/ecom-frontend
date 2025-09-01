@@ -91,6 +91,36 @@ const BigNav = () => {
 
                     {/* Account */}
                     <div className="">
+                        {
+                            (() => {
+                                if (!auth.token) {
+                                    return (
+                                        <a href="/login" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                            <FaUser className="h-5 w-auto fill-gray-500" />
+                                            <span className="ml-2 font-medium">My Account</span>
+                                        </a>
+                                    )
+                                }
+                                else if (auth.role === 'admin' || auth.role === 'staff' || auth.role === 'vendor') {
+                                    return (
+                                        <a href="/Dashboard/Home" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                            <FaUser className="h-5 w-auto fill-gray-500" />
+                                            <span className="ml-2 font-medium">My Account</span>
+                                        </a>
+                                    )
+                                }
+                                else if (auth.role === 'buyer') {
+                                    return (
+                                        <a href="/my-dashboard" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
+                                            <FaUser className="h-5 w-auto fill-gray-500" />
+                                            <span className="ml-2 font-medium">My Account</span>
+                                        </a>
+                                    )
+                                }
+                            })()
+                        }
+                    </div>
+                    <div className="">
                         {!auth.token ? (
                             <a href="/login" className="flex items-center bg-gray-100 px-4 py-2 rounded-full border border-gray-300 text-gray-500 hover:text-lime-600 hover:shadow-md transition-all">
                                 <FaUser className="h-5 w-auto fill-gray-500" />

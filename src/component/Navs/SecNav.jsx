@@ -11,18 +11,31 @@ const SecNav = () => {
                         <a href="" className='mx-2'>
                             <p className="hover:text-lime-600">About Us</p>
                         </a>
-                        {!auth.token  ? (
-                            <a href="/login" className='mx-2'>
-                                <p className="hover:text-lime-600">My Account</p>
-                            </a>
-                        ) : (
-                            <a href="/Dashboard/Home" className='mx-2'>
-                                <p className="hover:text-lime-600">My Account</p>
-                            </a>
-                        )}
-                        <a href="" className='mx-2'>
-                            <p className="hover:text-lime-600">Need Help</p>
-                        </a>
+                        {
+                            (() => {
+                                if (!auth.token) {
+                                    return (
+                                        <a href="/login" className='mx-2'>
+                                            <p className="hover:text-lime-600">My Account</p>
+                                        </a>
+                                    )
+                                }
+                                else if (auth.role === 'admin' || auth.role === 'staff' || auth.role === 'vendor') {
+                                    return (
+                                        <a href="/Dashboard/Home" className='mx-2'>
+                                            <p className="hover:text-lime-600">My Account</p>
+                                        </a>
+                                    )
+                                }
+                                else if (auth.role === 'buyer') {
+                                    return (
+                                        <a href="/my-dashboard" className='mx-2'>
+                                            <p className="hover:text-lime-600">My Account</p>
+                                        </a>
+                                    )
+                                }
+                            })()
+                        }
                     </div>
                     <div className="py-3 ml-4 text-gray-500">
                         <p className="">We deliver to your everyday from 7:00 to 22:00</p>
