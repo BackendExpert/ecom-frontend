@@ -28,6 +28,8 @@ import SystemUsers from '../pages/Dashboard/Roles/SystemUsers'
 import CreateUser from '../pages/Dashboard/Roles/CreateUser'
 import BuyerDash from '../layouts/BuyerDash'
 import MyDashboard from '../pages/BuyerDash/MyDashboard'
+import ManageProduct from '../pages/Dashboard/Products/ManageProduct'
+import AddProduct from '../pages/Dashboard/Products/AddProduct'
 
 function App() {
 
@@ -67,11 +69,15 @@ function App() {
                     <Route path='create-newrole' element={<PrivateRoute roles={['admin']}><CreateNewRole /></PrivateRoute>} />
                     <Route path='activities' element={<PrivateRoute roles={['admin']}><Activities /></PrivateRoute>} />
                     <Route path='view-activity/:id' element={<PrivateRoute roles={['admin']}><ViewActivity /></PrivateRoute>} />
+
+                    <Route path='products' element={<PrivateRoute roles={['admin', 'staff']}><ManageProduct /></PrivateRoute>} />
+                    <Route path='add-product' element={<PrivateRoute roles={['admin', 'staff']}><AddProduct /></PrivateRoute>} />
+
                 </Route>
 
 
-                <Route path='/my-dashboard' element={<PrivateRoute roles={['buyer', 'admin']}><BuyerDash /> </PrivateRoute> } >
-                    <Route index element={<PrivateRoute roles={['buyer', 'admin']}> <MyDashboard /> </PrivateRoute> } />
+                <Route path='/my-dashboard' element={<PrivateRoute roles={['buyer', 'admin']}><BuyerDash /> </PrivateRoute>} >
+                    <Route index element={<PrivateRoute roles={['buyer', 'admin']}> <MyDashboard /> </PrivateRoute>} />
                 </Route>
             </Routes>
         </BrowserRouter>
