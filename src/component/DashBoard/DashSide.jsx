@@ -10,7 +10,7 @@ import {
     MdAssignment,
     MdHistory
 } from 'react-icons/md';
-import { FaBalanceScale } from "react-icons/fa"
+import { FaBalanceScale, FaShoppingCart, FaCartPlus } from "react-icons/fa"
 import { FaUserShield, FaChevronDown, FaChevronUp, FaUsers } from "react-icons/fa6";
 import { useAuth } from '../../context/AuthContext';
 import API from '../../services/api';
@@ -79,8 +79,18 @@ const DashSide = () => {
             ]
         },
 
-        auth.role === 'admin' && { 
-            link: '/Dashboard/activities', name: 'User Activities', icon: <MdHistory /> 
+        auth.role === 'admin' && {
+            link: '/Dashboard/activities', name: 'User Activities', icon: <MdHistory />
+        },
+
+        (auth.role === 'admin' || auth.role === 'staff') && {
+            link: '/Dashboard/products',
+            name: 'Products',
+            icon: <FaShoppingCart />,
+            submenu: [
+                { name: 'Product List', link: '/Dashboard/products', icon: <FaShoppingCart /> },
+                { name: 'Add Product', link: '/Dashboard/add-product', icon: <FaCartPlus /> },
+            ]
         },
 
     ].filter(Boolean); // remove false items for non-admin users
