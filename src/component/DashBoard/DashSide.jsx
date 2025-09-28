@@ -10,7 +10,7 @@ import {
     MdAssignment,
     MdHistory
 } from 'react-icons/md';
-import { FaBalanceScale, FaShoppingCart, FaCartPlus } from "react-icons/fa"
+import { FaBalanceScale, FaShoppingCart, FaCartPlus, FaTags, FaTag   } from "react-icons/fa"
 import { FaUserShield, FaChevronDown, FaChevronUp, FaUsers } from "react-icons/fa6";
 import { useAuth } from '../../context/AuthContext';
 import API from '../../services/api';
@@ -90,6 +90,16 @@ const DashSide = () => {
             submenu: [
                 { name: 'Product List', link: '/Dashboard/products', icon: <FaShoppingCart /> },
                 { name: 'Add Product', link: '/Dashboard/add-product', icon: <FaCartPlus /> },
+            ]
+        },
+
+        (auth.role === 'admin' || auth.role === 'staff') && {
+            link: '/Dashboard/product-types',
+            name: 'Product Types',
+            icon: <FaTags />,
+            submenu: [
+                { name: 'Product Types', link: '/Dashboard/product-types', icon: <FaTags /> },
+                { name: 'Add Product Type', link: '/Dashboard/add-product-type', icon: <FaTag  /> },
             ]
         },
 

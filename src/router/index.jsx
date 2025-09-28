@@ -30,6 +30,8 @@ import BuyerDash from '../layouts/BuyerDash'
 import MyDashboard from '../pages/BuyerDash/MyDashboard'
 import ManageProduct from '../pages/Dashboard/Products/ManageProduct'
 import AddProduct from '../pages/Dashboard/Products/AddProduct'
+import ProductTypeList from '../pages/Dashboard/ProductTypes/ProductTypeList'
+import CreateProductType from '../pages/Dashboard/ProductTypes/CreateProductType'
 
 function App() {
 
@@ -72,6 +74,9 @@ function App() {
 
                     <Route path='products' element={<PrivateRoute roles={['admin', 'staff']}><ManageProduct /></PrivateRoute>} />
                     <Route path='add-product' element={<PrivateRoute roles={['admin', 'staff']}><AddProduct /></PrivateRoute>} />
+                    <Route path='product-types' element={<PrivateRoute roles={['admin', 'staff']}><ProductTypeList /></PrivateRoute>} />
+                    <Route path='add-product-type' element={<PrivateRoute roles={['admin', 'staff']}><CreateProductType /></PrivateRoute>} />
+
 
                 </Route>
 
